@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function(){
     let firstNum = null;
     let secondNum = null; 
     let operator = null;
+    let result = null;
     let flag = 0;
     
 
@@ -96,7 +97,14 @@ document.addEventListener('DOMContentLoaded', function(){
 
             if((btnValue.includes("=")) && operator == 'x'){
                 secondNum = Number(outputFieldInitialContent);
-                outputField.textContent = multiply(firstNum, secondNum);
+                result = multiply(firstNum, secondNum);
+
+                if(result % 1 != 0){
+                    outputField.textContent = result.toFixed(6);
+                } else {
+                    outputField.textContent = result;
+                }
+
                 flag = 1;
                 firstNum = null;
                 secondNum = null;
@@ -104,11 +112,23 @@ document.addEventListener('DOMContentLoaded', function(){
 
             if((btnValue.includes("=")) && operator == '/'){
                 secondNum = Number(outputFieldInitialContent);
-                outputField.textContent = divide(firstNum, secondNum);
+                result = divide(firstNum, secondNum);
+ 
+                if(secondNum == 0){
+                    outputField.textContent = "LMAO";
+                } else {
+                    if(result %1 != 0){
+                        outputField.textContent = result.toFixed(6);
+                    } else {
+                        outputField.textContent = result;
+                    }
+                }
+
                 flag = 1;
                 firstNum = null;
                 secondNum = null;
             }
+
 
             if(btnValue.includes("AC")){
                 outputField.textContent = '';
