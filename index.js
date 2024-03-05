@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     firstNum = Number(outputFieldInitialContent);
                     operator = "+";
                     flag = 1;
-                }
+                } 
             }
 
             if(btnValue.includes("-")){
